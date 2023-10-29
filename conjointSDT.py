@@ -35,19 +35,14 @@ from tkinter import filedialog
 from itertools import starmap, zip_longest
 def map(func, *iterables):
    zipped = zip_longest(*iterables)
-   if func is None:
-       return zipped
-   return list(starmap(func, zipped))
+   return zipped if func is None else list(starmap(func, zipped))
 
 
 # Default Options Dictionary
-default_options = {}
-default_options["listbox_width"] = 30
-default_options["listbox_height"] = 30
-
+default_options = {"listbox_width": 30, "listbox_height": 30}
 # License Environmental Variables
 version = "3.0"
-progname = "Conjoint Survey Design Tool Version " + version + ": A Python Graphical User Interface For Creating Conjoint Experimental Designs Usable With Web Survey Platforms"
+progname = f"Conjoint Survey Design Tool Version {version}: A Python Graphical User Interface For Creating Conjoint Experimental Designs Usable With Web Survey Platforms"
 copyright = "Copyright (c) 2022 Anton Strezhnev, Jens Hainmueller, Daniel J. Hopkins, and Teppei Yamamoto"
 GPL = "This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>."
 companion = "This software program was designed as a companion to"
